@@ -1,0 +1,20 @@
+
+<ion-content fullscreen="true">
+    <ion-card>
+        <ion-card-content>
+            <form [formGroup] ="_LoginForm" (ngSubmit)="onSubmitForm($event)" >
+                <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="email" formControlName="email" required></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating" name="cli_pass">password</ion-label>
+                    <ion-input type="password" formControlName="password" required></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-button slot="end" type="submit"  color="primary" [disabled]="_LoginForm.invalid">aceptar</ion-button>
+                </ion-item>
+            </form>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

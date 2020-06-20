@@ -1,35 +1,52 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit } from '@angular/core';
+
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {StoreAuthenticate} from "@Utils/class/store-auth.class";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
-export class AppComponent {
-  title = '';
-  description = '';
-  constructor(private http: HttpClient){}
+export class AppComponent implements OnInit {
+  public selectedIndex = 0;
+  public appPages = [
+    {
+      title: 'Inbox',
+      url: '/folder/Inbox',
+      icon: 'mail'
+    },
+  ];
+  // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  ngOnInit(){
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private storeAuthenticate: StoreAuthenticate,
+    private router: Router
+  ) {
+    this.initializeApp();
+  }
 
-    this.http.get("http://localhost:4200/titulo", {responseType: 'text'}).subscribe(
-      (resp :any)=>{
-      this.title = resp;
-      }),
-    (error:any)=>{
-      console.log(error)
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
+  ngOnInit() {
+    const path = window.location.pathname.split('folder/')[1];
+    if (path !== undefined) {
+      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
-    
-
-    this.http.get("http://localhost:4200/descripcion", {responseType: 'text'}).subscribe((resp :any)=>{
-      this.description = resp;
-      }),
-    
-    (error:any)=>{
-      console.log(error)
+    if (!this.storeAuthenticate.getStoredTokens()) {
+      this.router.navigate(['/login']);
     }
+
   }
 }
-

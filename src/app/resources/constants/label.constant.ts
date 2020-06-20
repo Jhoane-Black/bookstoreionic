@@ -1,0 +1,1 @@
+export const HTTP_OPTIONS_OBSERVE_RESPONSE = 'response';

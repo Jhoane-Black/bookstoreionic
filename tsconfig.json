@@ -1,7 +1,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@Smarts/*" : ["app/components/smarts/*"],
+      "@Dummies/*" : ["app/components/dummies/*"],
+      "@Resources/*" : ["app/resources/*"],
+      "@Modules/*" : ["app/modules/*"],
+      "@Utils/*" : ["app/util/*"],
+      "@services/*" : ["app/services/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
