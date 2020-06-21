@@ -1,0 +1,32 @@
+<ion-list *ngIf="(books$ | async) as books; else loadingSpinner">
+  <ion-card *ngFor="let b of books">
+    <ion-item-sliding>
+      <ion-item-options>
+        <ion-item-option color="danger"><ion-icon name="trash-bin"></ion-icon></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-thumbnail>
+          <ion-icon name="book" size="large"></ion-icon>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{b.book_title}}</h3>
+          <p>{{b.book_editorial}}</p>
+        </ion-label>
+        <ion-label>
+          <h3>{{b.book_saga}}</h3>
+          <p>{{b.book_price | currency}}</p>
+        </ion-label>
+        <ion-button title="Autor" fill="outside" color="primary" (click)="eventButton($event, b)"><ion-icon name="person"></ion-icon></ion-button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-card>
+</ion-list>
+<ng-template #loadingSpinner>
+  <ion-grid>
+    <ion-row>
+      <ion-col offsetMd="5" sizeMd="5" offsetSm="5" sizeSm="5" offsetXs="5" sizeXs="5">
+        <ion-spinner color="primary"></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-template>

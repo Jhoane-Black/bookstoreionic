@@ -1,6 +1,17 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>LOGIN</ion-title>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content fullscreen="true">
     <ion-card>
+        <ion-card-header style="text-align: center">
+            <ion-card-title>Book Store</ion-card-title>
+        </ion-card-header>
         <ion-card-content>
             <form [formGroup] ="_LoginForm" (ngSubmit)="onSubmitForm($event)" >
                 <ion-item>

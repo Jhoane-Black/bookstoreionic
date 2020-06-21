@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@Smarts/*" : ["app/components/smarts/*"],
+      "@Smarts/*" : ["app/components/smart/*"],
       "@Dummies/*" : ["app/components/dummies/*"],
       "@Resources/*" : ["app/resources/*"],
       "@Modules/*" : ["app/modules/*"],

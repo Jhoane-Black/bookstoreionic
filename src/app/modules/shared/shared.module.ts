@@ -5,11 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { GenericWarningComponent } from '@Dummies/generic-warning/generic-warning.component';
+import {AuthorListComponent} from "@Dummies/author-list/author-list.component";
+import {HandleAddAuthorComponent} from "@Smarts/handle-add-author/handle-add-author.component";
 
 @NgModule({
 	declarations: [
 		LoginComponent,
 		GenericWarningComponent,
+		AuthorListComponent,
+		HandleAddAuthorComponent
 	],
 	imports: [CommonModule, ReactiveFormsModule, IonicModule, RouterModule, FormsModule],
 	exports: [
@@ -20,6 +24,8 @@ import { GenericWarningComponent } from '@Dummies/generic-warning/generic-warnin
 		IonicModule,
 		RouterModule,
 		GenericWarningComponent,
+		AuthorListComponent,
+		HandleAddAuthorComponent
 	],
 })
 export class SharedModule {}

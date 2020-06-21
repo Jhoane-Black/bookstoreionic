@@ -1,0 +1,67 @@
+<form [formGroup]="handleClientFormClass.clientForm" (ngSubmit)="onLocalSubmitForm($event)">
+  <ion-grid>
+    <ion-row>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" formControlName="cli_nom" required autofocus></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input type="text" formControlName="cli_ape" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Pais</ion-label>
+          <ion-input type="text" formControlName="cli_pais" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="email" formControlName="cli_email" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="cli_pass" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating"># Tarjeta de Credito</ion-label>
+          <ion-input type="number" formControlName="cli_cc" required></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Dia</ion-label>
+          <ion-datetime type="date"  formControlName="cli_ccday" required displayFormat="D"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">mes</ion-label>
+          <ion-datetime  formControlName="cli_ccmonth" required displayFormat="MMM" ></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item>
+          <ion-label position="floating">Año</ion-label>
+          <ion-datetime  formControlName="cli_ccyear" required displayFormat="YYYY" ></ion-datetime>
+        </ion-item>
+      </ion-col>
+
+      <ion-col offsetSm="0" sizeSm="12" offsetMd="2" sizeMd="8" offsetLg="2" sizeLg="8" offsetXs="0" sizeXs="12">
+        <ion-item lines="none">
+          <ion-button  type="submit"  fill="outline" color="primary" [disabled]="handleClientFormClass.clientForm.invalid" slot="end">Guardar</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

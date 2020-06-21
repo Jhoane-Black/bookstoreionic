@@ -1,0 +1,9 @@
+<ion-list *ngIf="(authors$ | async) as authors">
+    <ion-item *ngFor="let a of authors" button [detailIcon]="true" (click)="updateCheck(a)">
+        <ion-icon name="checkmark" color="primary" *ngIf="handleCheck(a)"></ion-icon>
+        <ion-label>{{a.aut_name}}</ion-label>
+    </ion-item>
+</ion-list>
+<ion-item *ngIf="(authors$ | async) && !checkAuthor">
+    <ion-button (click)="onSetAuthor()">aceptar</ion-button>
+</ion-item>

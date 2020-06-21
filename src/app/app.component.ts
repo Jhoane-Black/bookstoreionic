@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {StoreAuthenticate} from "@Utils/class/store-auth.class";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {ClientType} from "@Resources/types/client.type";
 
 @Component({
   selector: 'app-root',
@@ -19,14 +21,25 @@ export class AppComponent implements OnInit {
       url: '/folder/Inbox',
       icon: 'mail'
     },
+    {
+      title: 'Libros',
+      url: '/books',
+      icon: 'book'
+    },
+    {
+      title: 'Autores',
+      url: '/author',
+      icon: 'person'
+    }
   ];
   // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public onLogin: Observable<ClientType | null>;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private storeAuthenticate: StoreAuthenticate,
+    public storeAuthenticate: StoreAuthenticate,
     private router: Router
   ) {
     this.initializeApp();
@@ -39,7 +52,13 @@ export class AppComponent implements OnInit {
     });
   }
 
+  public logout() {
+    this.storeAuthenticate.logout();
+    this.router.navigate(['/login']);
+  }
+
   ngOnInit() {
+    this.storeAuthenticate.getStoredToken$();
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());

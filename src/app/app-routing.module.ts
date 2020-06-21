@@ -15,6 +15,18 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'client',
+    loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule)
+  },
+  {
+    path: 'books',
+    loadChildren: () => import('./modules/books/book.module').then(m => m.BookModule)
+  },
+  {
+    path: 'author',
+    loadChildren: () => import('./modules/author/author.module').then(m => m.AuthorModule)
   }
 ];
 

@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Author</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-author-form (onSubmitForm)="onAuthorForm($event)"></app-author-form>
+  <ion-grid>
+    <ion-row>
+      <ion-col offsetMd="2" sizeMd="8">
+        <app-author-list [authors$]="authors$"></app-author-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,12 @@
+<ion-list *ngIf="(authors$ | async) as authors; else noList">
+    <ion-card *ngFor="let a of authors">
+        <ion-item>
+            <ion-thumbnail><ion-icon name="person" size="large"></ion-icon></ion-thumbnail>
+            <ion-label>{{a.aut_name}}</ion-label>
+        </ion-item>
+    </ion-card>
+</ion-list>
+
+<ng-template #noList>
+    <app-generic-warning [text]="'Autores Registrados'"></app-generic-warning>
+</ng-template>

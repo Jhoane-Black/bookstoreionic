@@ -1,0 +1,16 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-thumbnail>
+          <ion-icon size="large" name="person"></ion-icon>
+        </ion-thumbnail>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="name" required></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="onSubmit()" fill="clear">guardar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
